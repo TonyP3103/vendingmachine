@@ -1,0 +1,42 @@
+module tb();
+    logic clk, rst;
+    logic nickel, dime, quarter;
+    logic [3:0] total;
+
+  mile_stone_1 DUT (
+        .clk(clk),
+        .rst(rst),
+        .nickel(nickel),
+        .dime(dime),
+        .quarter(quarter),
+        .total(total)
+    );
+
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
+
+    initial begin
+        nickel = 0;
+        dime = 0;
+        quarter = 0;
+        rst = 1'b0;
+        #10;
+        rst = 1'b1;
+        #10;
+        nickel = 1'b1; dime = 1'b0; quarter = 1'b0; // Insert nickel
+        #10;
+        nickel = 1'b0; dime = 1'b1; quarter = 1'b0; // Insert dime
+        #10;
+        nickel = 1'b0; dime = 1'b0; quarter = 1'b1; // Insert quarter
+        #10;
+        nickel = 1'b1; dime = 1'b0; quarter = 1'b0; // Insert nickel
+        #10;
+        nickel = 1'b0; dime = 1'b0; quarter = 1'b0; // No coin
+        #10;    
+        $finish;
+
+    end
+
+endmodule 

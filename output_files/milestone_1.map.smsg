@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at milestone_1.sv(2): object "rst" differs only in case from object "RST" in the same scope File: C:/Users/Muy/Downloads/vendingmachine/milestone_1.sv Line: 2
+Info (10281): Verilog HDL Declaration information at milestone_1.sv(18): object "ACCUMULATE" differs only in case from object "accumulate" in the same scope File: C:/Users/Muy/Downloads/vendingmachine/milestone_1.sv Line: 18

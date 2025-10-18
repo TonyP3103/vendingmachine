@@ -1,0 +1,201 @@
+|milestone_1
+clk => result_comp_q[0].CLK
+clk => result_comp_q[1].CLK
+clk => result_comp_q[2].CLK
+clk => result_comp_q[3].CLK
+clk => result_comp_q[4].CLK
+clk => total[0]~reg0.CLK
+clk => total[1]~reg0.CLK
+clk => total[2]~reg0.CLK
+clk => total[3]~reg0.CLK
+clk => total[4]~reg0.CLK
+clk => state_q~1.DATAIN
+rst => Selector1.IN2
+rst => Selector3.IN2
+rst => result_comp_q[0].ACLR
+rst => result_comp_q[1].ACLR
+rst => result_comp_q[2].ACLR
+rst => result_comp_q[3].ACLR
+rst => result_comp_q[4].ACLR
+rst => total[0]~reg0.ACLR
+rst => total[1]~reg0.ACLR
+rst => total[2]~reg0.ACLR
+rst => total[3]~reg0.ACLR
+rst => total[4]~reg0.ACLR
+rst => Selector0.IN2
+rst => state_d.RST.DATAB
+rst => state_q~3.DATAIN
+nickel => nickel.IN1
+dime => dime.IN1
+quarter => quarter.IN1
+total[0] <= total[0].DB_MAX_OUTPUT_PORT_TYPE
+total[1] <= total[1].DB_MAX_OUTPUT_PORT_TYPE
+total[2] <= total[2].DB_MAX_OUTPUT_PORT_TYPE
+total[3] <= total[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+total[4] <= total[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+result_comp[0] <= result_comp_q[0].DB_MAX_OUTPUT_PORT_TYPE
+result_comp[1] <= result_comp_q[1].DB_MAX_OUTPUT_PORT_TYPE
+result_comp[2] <= result_comp_q[2].DB_MAX_OUTPUT_PORT_TYPE
+result_comp[3] <= result_comp_q[3].DB_MAX_OUTPUT_PORT_TYPE
+result_comp[4] <= result_comp_q[4].DB_MAX_OUTPUT_PORT_TYPE
+state_check[0] <= Selector3.DB_MAX_OUTPUT_PORT_TYPE
+state_check[1] <= state_check[1].DB_MAX_OUTPUT_PORT_TYPE
+state_check[2] <= state_check[2].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|milestone_1|coin_insert:coin_insert_1
+nickel => Decoder0.IN0
+dime => Decoder0.IN1
+quarter => Decoder0.IN2
+coin_out[0] <= coin_out.DB_MAX_OUTPUT_PORT_TYPE
+coin_out[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+coin_out[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+coin_out[3] <= <GND>
+
+
+|milestone_1|adder3bit:accumulate
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+b[0] => comb.IN0
+b[1] => comb.IN0
+b[2] => comb.IN0
+b[3] => comb.IN0
+cin => cin.IN2
+sum[0] <= adder:u0.sum
+sum[1] <= adder:u1.sum
+sum[2] <= adder:u2.sum
+sum[3] <= adder:u3.sum
+sum[4] <= adder:u4.sum
+cout <= adder:u4.cout
+
+
+|milestone_1|adder3bit:accumulate|adder:u0
+a => sum.IN0
+a => cout.IN0
+b => sum.IN1
+b => cout.IN1
+cin => sum.IN1
+cin => cout.IN1
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|milestone_1|adder3bit:accumulate|adder:u1
+a => sum.IN0
+a => cout.IN0
+b => sum.IN1
+b => cout.IN1
+cin => sum.IN1
+cin => cout.IN1
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|milestone_1|adder3bit:accumulate|adder:u2
+a => sum.IN0
+a => cout.IN0
+b => sum.IN1
+b => cout.IN1
+cin => sum.IN1
+cin => cout.IN1
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|milestone_1|adder3bit:accumulate|adder:u3
+a => sum.IN0
+a => cout.IN0
+b => sum.IN1
+b => cout.IN1
+cin => sum.IN1
+cin => cout.IN1
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|milestone_1|adder3bit:accumulate|adder:u4
+a => sum.IN0
+a => cout.IN0
+b => sum.IN1
+b => cout.IN1
+cin => sum.IN1
+cin => cout.IN1
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|milestone_1|adder3bit:comparator
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+b[0] => comb.IN0
+b[1] => comb.IN0
+b[2] => comb.IN0
+b[3] => comb.IN0
+cin => cin.IN2
+sum[0] <= adder:u0.sum
+sum[1] <= adder:u1.sum
+sum[2] <= adder:u2.sum
+sum[3] <= adder:u3.sum
+sum[4] <= adder:u4.sum
+cout <= adder:u4.cout
+
+
+|milestone_1|adder3bit:comparator|adder:u0
+a => sum.IN0
+a => cout.IN0
+b => sum.IN1
+b => cout.IN1
+cin => sum.IN1
+cin => cout.IN1
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|milestone_1|adder3bit:comparator|adder:u1
+a => sum.IN0
+a => cout.IN0
+b => sum.IN1
+b => cout.IN1
+cin => sum.IN1
+cin => cout.IN1
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|milestone_1|adder3bit:comparator|adder:u2
+a => sum.IN0
+a => cout.IN0
+b => sum.IN1
+b => cout.IN1
+cin => sum.IN1
+cin => cout.IN1
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|milestone_1|adder3bit:comparator|adder:u3
+a => sum.IN0
+a => cout.IN0
+b => sum.IN1
+b => cout.IN1
+cin => sum.IN1
+cin => cout.IN1
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|milestone_1|adder3bit:comparator|adder:u4
+a => sum.IN0
+a => cout.IN0
+b => sum.IN1
+b => cout.IN1
+cin => sum.IN1
+cin => cout.IN1
+sum <= sum.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout.DB_MAX_OUTPUT_PORT_TYPE
+
+

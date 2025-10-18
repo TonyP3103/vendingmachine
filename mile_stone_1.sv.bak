@@ -1,0 +1,34 @@
+module mile_stone_1(clk, rst, nickel, dime, quarter, total);
+    input logic clk, rst;
+    input logic nickel, dime, quarter;
+    output logic [3:0] total;
+
+    logic [2:0] coin_value;
+    logic [3:0] new_total;
+    logic cout;
+
+    coin_insert coin_insert_1 (
+        .nickel(nickel),
+        .dime(dime),
+        .quarter(quarter),
+        .total(coin_value)
+    );
+
+    adder3bit adder_inst (
+        .a(coin_value),
+        .b(total[2:0]),
+        .cin(1'b0),
+        .sum(new_total),
+        .cout(cout)
+    );
+
+    always_ff @(posedge clk or negedge rst) begin
+        if (!rst) begin
+            total <= 4'b0000;
+        end else begin
+            total <= new_total;
+        end
+    end
+
+
+endmodule
